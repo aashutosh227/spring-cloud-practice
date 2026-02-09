@@ -1,9 +1,6 @@
 package com.aashutosh.ms_product.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
@@ -15,6 +12,8 @@ public class Product {
     private String name;
     private String description;
     private BigDecimal price;
+    @Transient
+    private String couponCode;
 
     public Long getId() {
         return id;
@@ -46,5 +45,13 @@ public class Product {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public String getCouponCode() {
+        return couponCode;
+    }
+
+    public void setCouponCode(String couponCode) {
+        this.couponCode = couponCode;
     }
 }
